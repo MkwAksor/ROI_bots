@@ -62,7 +62,7 @@ if __name__ == '__main__':
             white_percent = (white_pixels / total_pixels) * 100
 
             # 4. Проверяем условие поклевки
-            if white_percent >= WHITE_THRESHOLD_PERCENT:
+            if white_percent >= WHITE_THRESHOLD_PERCENT and (not stop):
                 print(f"[+] СРАБОТАЛО! Белого цвета: {white_percent:.2f}% ({white_pixels} пикс.)")
                 
                 pyautogui.click(button='right')  # Подсекаем
