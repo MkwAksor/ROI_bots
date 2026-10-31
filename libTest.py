@@ -8,8 +8,9 @@ rbl.help()
 
 if __name__ == '__main__':
     ROI = {"top": 0, "left": 0, "width": 400, "height": 300}
+    run = rbl.start()
     with mss.MSS() as sct:
-        while True:
+        while run:
             img = np.array(sct.grab(ROI))
             frame = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
             rbl.FPS(frame=frame)
