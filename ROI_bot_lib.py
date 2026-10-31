@@ -4,6 +4,8 @@ import time
 import cv2
 import numpy as np
 import mss
+import keyboard
+import os
 
 
 """Данная библиотека создана для упрощения написания
@@ -44,7 +46,7 @@ def click():
 # Старт программы
 def start():
     global run
-     
+    keyboard.add_hotkey('esc', lambda: os._exit(0))
     run = True
 
 def FPS(frame):
@@ -65,6 +67,7 @@ def FPS(frame):
 
 if __name__ == '__main__':
     roi = {"top": 0, "left": 0, "width": 400, "height": 300}
+    start()
     with mss.MSS() as sct:
         while True:
             img = np.array(sct.grab(roi))
